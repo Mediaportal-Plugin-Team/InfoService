@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PackageClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<PackageClass xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Version>2.0</Version>
   <Groups>
     <Items>
@@ -10,12 +10,26 @@
         <Description>Install the InfoService plugin</Description>
         <Files>
           <Items>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\InfoService.dll</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\bin\Release\InfoService.dll</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{be1ed68f-64db-4d89-8cbf-87c5b83ab36c}-InfoService.dll</ZipFileName>
               <DestinationFilename>%Plugins%\Windows\InfoService.dll</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="PlatformTarget_x64">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\InfoService\InfoServicePluginLoader\bin\x64\Release\InfoServicePluginLoader.exe</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{5f734a0d-9239-46d6-afe7-fddd9fa35588}-InfoServicePluginLoader.exe</ZipFileName>
+              <DestinationFilename>%Plugins%\Windows\InfoServicePluginLoader.exe</DestinationFilename>
+            </FileItem>
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="PlatformTarget_x86">
+              <Param1 />
+              <UpdateOption>AlwaysOverwrite</UpdateOption>
+              <LocalFileName>..\InfoService\InfoServicePluginLoader\bin\x86\Release\InfoServicePluginLoader.exe</LocalFileName>
+              <ZipFileName>Installer{CopyFile}\{a5be1878-bd55-4f6f-99bd-6814838572e3}-InfoServicePluginLoader.exe</ZipFileName>
+              <DestinationFilename>%Plugins%\Windows\InfoServicePluginLoader.exe</DestinationFilename>
             </FileItem>
           </Items>
         </Files>
@@ -27,101 +41,101 @@
         <Description>Install English, German, Italian, Dutch, Danish, French, Spanish, Greek, Polish, Norwegian and Czech language files</Description>
         <Files>
           <Items>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_de.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_de.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{9e602d60-5799-4635-9f01-6b54773db66b}-strings_de.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_de.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_en.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_en.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{b820cf02-3b84-47f2-a703-5ce1991f1cf8}-strings_en.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_en.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_es.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_es.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{088d2880-eca6-485a-b299-eb29637c05a4}-strings_es.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_es.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_it.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_it.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{6f5091a8-ece4-4796-818f-60afbe2c1627}-strings_it.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_it.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_nl.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_nl.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{421f63ff-42e7-4b79-a624-06fa69112112}-strings_nl.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_nl.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_da.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_da.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{fa657c32-0ea8-44db-8c19-2f555a07eec1}-strings_da.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_da.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_fr.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_fr.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{3c1a5829-dff3-4016-a428-ec3e0c9668cc}-strings_fr.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_fr.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_en-US.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_en-US.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{5902a6e4-8e28-4059-a393-e1f604819973}-strings_en-US.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_en-US.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_en-GB.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_en-GB.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{f79f420f-58d7-4c52-8573-908a7c7ad905}-strings_en-GB.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_en-GB.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_PT-BR.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_PT-BR.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{ab6438f4-fe43-4cbc-8eb3-5a3219ceb5fb}-strings_PT-BR.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_PT-BR.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_el.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_el.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{b72e3f89-0bad-4847-b1c3-c1ad38f49e39}-strings_el.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_el.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_no.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_no.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{a8a5ac7d-af35-4f9c-b568-ce0912191380}-strings_no.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_no.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_pl.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_pl.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{52929b7d-1fbc-4d53-851e-5e49479397ac}-strings_pl.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_pl.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
               <Param1 />
               <UpdateOption>AlwaysOverwrite</UpdateOption>
-              <LocalFileName>..\LastBuild\Language\InfoService\strings_cs.xml</LocalFileName>
+              <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_cs.xml</LocalFileName>
               <ZipFileName>Installer{CopyFile}\{fbae3ffc-00de-488e-b4a7-9aca62671fde}-strings_cs.xml</ZipFileName>
               <DestinationFilename>%Language%\InfoService\strings_cs.xml</DestinationFilename>
             </FileItem>
@@ -143,116 +157,116 @@
         <Description>TITANIUS skin files</Description>
         <Files>
           <Items>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.feeds.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{9e9edffe-b111-4ed1-a3ba-4b08f2391417}-infoservice.feeds.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{c98461c6-7c06-4255-96c8-e6020f8a5dd6}-infoservice.feeds.xml</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\infoservice.feeds.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.notifybar.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{944d880b-9d06-4165-902a-a1afde521169}-infoservice.notifybar.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{f231c2e4-8fee-41ac-a421-a5900ebe5954}-infoservice.notifybar.xml</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\infoservice.notifybar.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.twitter.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{5cc9e7b5-da51-4612-b5f7-8d36eaff81bc}-infoservice.twitter.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{76aededd-fc54-4b0d-888f-d985f22fd73d}-infoservice.twitter.xml</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\infoservice.twitter.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{a1450673-85c7-4431-8b15-9f0f93e38739}-infoservice.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{4442d0f3-90c8-48ea-8e7d-b04a3a244e47}-infoservice.xml</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\infoservice.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedALL.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{8201c60c-f226-4c7c-81d6-996a556bd2fc}-defaultFeedALL.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{ebbfdaf5-507b-4b4c-a2de-cfa538310142}-defaultFeedALL.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedALL.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedAtom.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{d49512eb-91ed-4d33-98be-15e9f4a3972c}-defaultFeedAtom.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{062c767b-ce8b-4754-89cb-29b37f907e90}-defaultFeedAtom.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedAtom.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemAtom.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{9e83a402-57e3-4267-9c49-10e06d5feead}-defaultFeedItemAtom.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{2e118bfc-2b6a-4a54-984a-7ef6a44cd098}-defaultFeedItemAtom.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{f77708db-87fa-4c62-b608-f0778a771f2b}-defaultFeedItemAtomBig.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{d62c62f6-476c-4bb5-a899-67a57c2f1e87}-defaultFeedItemAtomBig.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRDF.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{95dd932e-3317-475c-823b-3922290e22e9}-defaultFeedItemRDF.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{1b21a563-76eb-49f4-8372-a92a24584516}-defaultFeedItemRDF.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{910e698c-30bc-419c-8965-5433cdf1bd47}-defaultFeedItemRDFBig.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{801c51e5-68ee-4024-b6ee-260c300914c5}-defaultFeedItemRDFBig.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRSS.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{5217e083-0d88-4d7c-8894-5e8703b0dacd}-defaultFeedItemRSS.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{71a1d613-03c0-40cd-9611-27136c20b384}-defaultFeedItemRSS.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{50b68198-098a-42c3-9757-dabc404b3fbc}-defaultFeedItemRSSBig.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{08cd47ef-3aa6-4cef-9df8-c1f9eb0471f9}-defaultFeedItemRSSBig.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedRDF.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{6d25c008-0f0c-4cbb-a50e-5720f36d7aa3}-defaultFeedRDF.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{46a1462d-01dc-4f35-ac8d-b8011527e757}-defaultFeedRDF.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedRDF.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedRSS.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{4b010fb6-fdce-4818-bfa7-9fb9d272dc99}-defaultFeedRSS.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{2d37df51-b422-40ca-b348-262e3108c5f9}-defaultFeedRSS.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedRSS.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultTwitter.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{5084ee01-e80c-4ed4-87d1-289c8e0dddf2}-defaultTwitter.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{6f419ba2-c709-4cbe-a5cd-8e2d04096cc5}-defaultTwitter.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultTwitter.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\dialog_notifybar.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{458b417c-40bf-4615-93b0-e1d6b7824821}-dialog_notifybar.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{4eff4eaa-d1bb-4f8d-9943-c83e5459e059}-dialog_notifybar.png</ZipFileName>
               <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\dialog_notifybar.png</DestinationFilename>
             </FileItem>
           </Items>
@@ -265,116 +279,116 @@
         <Description>Titan skin files</Description>
         <Files>
           <Items>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.feeds.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{ef46f55e-ad36-447c-b7bd-fd8d0d88bd53}-infoservice.feeds.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{9fd21b6c-f332-41a3-b1f0-5b333b6fd0df}-infoservice.feeds.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\infoservice.feeds.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.notifybar.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{d6e04cba-c3b6-4973-acf9-6ff84e6c9e71}-infoservice.notifybar.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{e43031c3-2275-4c42-bd43-1c7127365598}-infoservice.notifybar.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\infoservice.notifybar.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.twitter.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{190507b5-e6d4-4cfd-8550-4604656742fc}-infoservice.twitter.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{0c5798a0-63c3-4edb-9284-1078495cb5a4}-infoservice.twitter.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\infoservice.twitter.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.xml</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{40dee6d4-c6de-48fd-848b-e44ee1890cf2}-infoservice.xml</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{384b386a-6c1c-4240-a807-d84033133d10}-infoservice.xml</ZipFileName>
               <DestinationFilename>%Skin%\Titan\infoservice.xml</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedALL.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{3af623ab-e87c-4d0f-aff4-21f62c322fa3}-defaultFeedALL.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{4a6e683e-9311-4c7e-b58f-7dba005f9301}-defaultFeedALL.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedALL.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedAtom.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{4b3739c9-5016-4fd1-878d-1b0a1ea3583a}-defaultFeedAtom.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{a02c1c54-a80e-4822-a520-436ec164de89}-defaultFeedAtom.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedAtom.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemAtom.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{45a3f4b6-85c0-4e05-92e0-9a2874470f12}-defaultFeedItemAtom.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{575368a6-cccd-40a2-b3e4-22845b77eb54}-defaultFeedItemAtom.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{4077cb4c-1882-4bf9-b524-796c6b3a9c46}-defaultFeedItemAtomBig.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{965f1b8c-b723-4c1a-9a96-a46c1ef07fa0}-defaultFeedItemAtomBig.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRDF.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{c76abb5c-1c40-4457-a2f2-c5b392fce31b}-defaultFeedItemRDF.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{b740c27d-efb6-4d6b-9cf5-5a39680c6a43}-defaultFeedItemRDF.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{4469f595-6616-4a0b-9871-2944d7a9bd1f}-defaultFeedItemRDFBig.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{2810e4d6-d2bd-4f4a-81fc-9763de7f277a}-defaultFeedItemRDFBig.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRSS.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{f37cd192-dfdb-40d3-b86d-1c97113e63e7}-defaultFeedItemRSS.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{21a8c319-afe4-4ea8-8d94-1deb4c04ce81}-defaultFeedItemRSS.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{a5aee53c-0571-4b43-8d8c-ac8109c25318}-defaultFeedItemRSSBig.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{f83cd5ba-7b1a-4702-8ca0-3f2a7f0a96ad}-defaultFeedItemRSSBig.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedRDF.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{c78cd519-ddb6-49d8-845a-ed7c0556ce8e}-defaultFeedRDF.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{be79904e-e282-4736-ad8d-bb6787293da9}-defaultFeedRDF.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedRDF.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedRSS.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{22c19ad0-0878-4730-be2b-e33d5531b381}-defaultFeedRSS.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{d8555967-6c89-471a-b604-5c68712fe9fb}-defaultFeedRSS.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedRSS.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultTwitter.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{b668fb62-6aaa-4f43-aa30-0250daab23bf}-defaultTwitter.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{b5e302ea-5682-4a4d-9bdf-7183c183f409}-defaultTwitter.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultTwitter.png</DestinationFilename>
             </FileItem>
-            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+            <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
               <Param1 />
               <UpdateOption>OverwriteIfOlder</UpdateOption>
               <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\dialog_notifybar.png</LocalFileName>
-              <ZipFileName>Installer{CopyFile}\{aebef2a2-1d20-4fc5-9630-6048ac13c78f}-dialog_notifybar.png</ZipFileName>
+              <ZipFileName>Installer{CopyFile}\{9ea3185e-466c-47ba-8bdd-4434bc7c29df}-dialog_notifybar.png</ZipFileName>
               <DestinationFilename>%Skin%\Titan\Media\InfoService\dialog_notifybar.png</DestinationFilename>
             </FileItem>
           </Items>
@@ -384,7 +398,7 @@
   </Groups>
   <Sections>
     <Items>
-      <SectionItem Guid="0531bafd-18d4-4226-852a-e5d62a1012c4" Name="Welcome Screen" ConditionGroup="">
+      <SectionItem Guid="0531bafd-18d4-4226-852a-e5d62a1012c4" Name="Welcome Screen" ConditionGroup="" Condition="None">
         <Params>
           <Items>
             <SectionParam Name="Header text">
@@ -418,7 +432,7 @@ Click Next to continue or Cancel to exit Setup.</Value>
         <PanelName>Welcome Screen</PanelName>
         <WizardButtonsEnum>NextCancel</WizardButtonsEnum>
       </SectionItem>
-      <SectionItem Guid="6288490f-cb49-4a1e-beb0-617d94d599cb" Name="License Agreement Screen" ConditionGroup="">
+      <SectionItem Guid="6288490f-cb49-4a1e-beb0-617d94d599cb" Name="License Agreement Screen" ConditionGroup="" Condition="None">
         <Params>
           <Items>
             <SectionParam Name="Header Title">
@@ -1135,7 +1149,7 @@ http://www.gnu.org/philosophy/why-not-lgpl.html .
         <PanelName>License Agreement Screen</PanelName>
         <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
       </SectionItem>
-      <SectionItem Guid="0d464b6e-27b1-48a1-ae6f-942181dd1ff6" Name="Readme Information" ConditionGroup="">
+      <SectionItem Guid="0d464b6e-27b1-48a1-ae6f-942181dd1ff6" Name="Readme Information" ConditionGroup="" Condition="None">
         <Params>
           <Items>
             <SectionParam Name="Header Title">
@@ -1469,7 +1483,7 @@ Version v0.1:
         <PanelName>Readme Information</PanelName>
         <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
       </SectionItem>
-      <SectionItem Guid="285bbcc5-db94-40b5-93f5-8a6092ecbb0a" Name="Tree View Selector" ConditionGroup="">
+      <SectionItem Guid="285bbcc5-db94-40b5-93f5-8a6092ecbb0a" Name="Tree View Selector" ConditionGroup="" Condition="None">
         <Params>
           <Items>
             <SectionParam Name="Header Title">
@@ -1507,7 +1521,7 @@ Version v0.1:
         <PanelName>Tree View Selector</PanelName>
         <WizardButtonsEnum>BackNextCancel</WizardButtonsEnum>
       </SectionItem>
-      <SectionItem Guid="755141ae-5277-4111-afc6-74103c1c93d7" Name="Install Section" ConditionGroup="">
+      <SectionItem Guid="755141ae-5277-4111-afc6-74103c1c93d7" Name="Install Section" ConditionGroup="" Condition="None">
         <Params>
           <Items>
             <SectionParam Name="Header Title">
@@ -1529,7 +1543,7 @@ Version v0.1:
         </Params>
         <Actions>
           <Items>
-            <ActionItem Name="InstallFiles" ActionType="InstallFiles" ConditionGroup="">
+            <ActionItem Name="InstallFiles" ActionType="InstallFiles" ConditionGroup="" Condition="None">
               <Params>
                 <Items />
               </Params>
@@ -1541,7 +1555,7 @@ Version v0.1:
         <PanelName>Install Section</PanelName>
         <WizardButtonsEnum>Next</WizardButtonsEnum>
       </SectionItem>
-      <SectionItem Guid="27282873-4d2b-4717-b657-3869fe61b88f" Name="Setup Complete" ConditionGroup="">
+      <SectionItem Guid="27282873-4d2b-4717-b657-3869fe61b88f" Name="Setup Complete" ConditionGroup="" Condition="None">
         <Params>
           <Items>
             <SectionParam Name="Header text">
@@ -1582,45 +1596,65 @@ Version v0.1:
         <Id />
         <MinVersion>
           <Major>1</Major>
-          <Minor>1</Minor>
-          <Build>6</Build>
-          <Revision>27644</Revision>
+          <Minor>32</Minor>
+          <Build>100</Build>
+          <Revision>0</Revision>
         </MinVersion>
         <MaxVersion>
-          <Major>1</Major>
-          <Minor>1</Minor>
-          <Build>6</Build>
-          <Revision>27644</Revision>
+          <Major>*</Major>
+          <Minor>*</Minor>
+          <Build>*</Build>
+          <Revision>*</Revision>
         </MaxVersion>
         <WarnOnly>false</WarnOnly>
-        <Message>requires MediaPortal version 1.1.6.27644 to 1.1.6.27644.</Message>
+        <Message>Requires MediaPortal 1.32.100.0 or higher!</Message>
         <Name>MediaPortal</Name>
+        <Condition>None</Condition>
       </DependencyItem>
     </Items>
   </Dependencies>
   <PluginDependencies>
-    <Items />
+    <Items>
+      <PluginDependencyItem AssemblyName="InfoService.dll">
+        <CompatibleVersion>
+          <Items>
+            <CompatibleVersionItem>
+              <MinRequiredVersion>1.6.100.0</MinRequiredVersion>
+              <DesignedForVersion>1.7.0.0</DesignedForVersion>
+            </CompatibleVersionItem>
+          </Items>
+        </CompatibleVersion>
+        <SubSystemsUsed>
+          <Items>
+            <SubSystemItem Name="MP.Config" />
+            <SubSystemItem Name="MP.Input" />
+            <SubSystemItem Name="MP.SkinEngine" />
+          </Items>
+        </SubSystemsUsed>
+      </PluginDependencyItem>
+    </Items>
   </PluginDependencies>
   <GeneralInfo>
     <Name>InfoService</Name>
     <Id>e39aeb32-041b-41f6-bfd8-cd1d8ea09278</Id>
     <Author>edsche, SilentException</Author>
-    <HomePage>https://github.com/hasenbolle/InfoService</HomePage>
+    <HomePage>https://github.com/Mediaportal-Plugin-Team/InfoService</HomePage>
     <ForumPage>http://forum.team-mediaportal.com/infoservice-522/</ForumPage>
-    <UpdateUrl>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=52</UpdateUrl>
+    <UpdateUrl>https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Installer/update.xml</UpdateUrl>
     <Version>
       <Major>1</Major>
-      <Minor>8</Minor>
-      <Build>5</Build>
+      <Minor>9</Minor>
+      <Build>0</Build>
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>InfoService is a plugin for that provides weather, feed and twitter informations on the home screen. It has also a feed reader and a twitter client built in. The plugin is for MediaPortal users and skinners who want to have some information on their MediaPortal homescreen.</ExtensionDescription>
-    <VersionDescription />
+    <VersionDescription>* x86 / x64 version</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
-    <OnlineLocation>http://www.team-mediaportal.com/index.php?option=com_mtree&amp;task=att_download&amp;link_id=84&amp;cf_id=24</OnlineLocation>
-    <ReleaseDate>2016-01-16T18:04:23.8903254+01:00</ReleaseDate>
+    <OnlineLocation>https://github.com/Mediaportal-Plugin-Team/InfoService/releases/download/v[Version]/[Name]-[Version].mpe1</OnlineLocation>
+    <ReleaseDate>2025-03-19T19:04:23</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
-    <Location>..\LastBuild\MPInfoService_v[Version].mpe1</Location>
+    <PlatformCompatibility>AnyCPU</PlatformCompatibility>
+    <Location>.\[Name]-[Version].mpe1</Location>
     <Params>
       <Items>
         <SectionParam Name="Icon">
@@ -1629,7 +1663,7 @@ Version v0.1:
           <Description>The icon file of the package (jpg,png,bmp)</Description>
         </SectionParam>
         <SectionParam Name="Online Icon">
-          <Value>https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/InfoService_icon_full.png</Value>
+          <Value>https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/InfoService_icon_full.png</Value>
           <ValueType>String</ValueType>
           <Description>The icon file of the package stored online (jpg,png,bmp)</Description>
         </SectionParam>
@@ -1641,7 +1675,7 @@ Version v0.1:
  If have .dll extension used like MP plugin configuration</Description>
         </SectionParam>
         <SectionParam Name="Online Screenshots">
-          <Value>https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/Config/addeditfeed.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/Config/feeditemsfilters.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/Config/advancedconfig.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/Config/editfeed_on_feeds.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/Config/feeds.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/Config/twitter.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/Config/weather.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/MP/mp1.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/MP/mp2.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/MP/mp3.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/MP/mp4.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/MP/mp5.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/MP/mp6.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/MP/mp7.png;https://raw.githubusercontent.com/hasenbolle/InfoService/master/Images/MP/mp8.png</Value>
+          <Value>https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/Config/addeditfeed.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/Config/feeditemsfilters.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/Config/advancedconfig.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/Config/editfeed_on_feeds.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/Config/feeds.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/Config/twitter.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/Config/weather.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/MP/mp1.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/MP/mp2.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/MP/mp3.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/MP/mp4.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/MP/mp5.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/MP/mp6.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/MP/mp7.png;https://raw.githubusercontent.com/Mediaportal-Plugin-Team/InfoService/master/Images/MP/mp8.png</Value>
           <ValueType>String</ValueType>
           <Description>Online stored screenshot urls separated by ; </Description>
         </SectionParam>
@@ -1655,357 +1689,371 @@ Version v0.1:
   </GeneralInfo>
   <UniqueFileList>
     <Items>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\InfoService.dll</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\bin\Release\InfoService.dll</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{be1ed68f-64db-4d89-8cbf-87c5b83ab36c}-InfoService.dll</ZipFileName>
         <DestinationFilename>%Plugins%\Windows\InfoService.dll</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_de.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoServicePluginLoader\bin\x64\Release\InfoServicePluginLoader.exe</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{5f734a0d-9239-46d6-afe7-fddd9fa35588}-InfoServicePluginLoader.exe</ZipFileName>
+        <DestinationFilename>%Plugins%\Windows\InfoServicePluginLoader.exe</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\InfoService\InfoServicePluginLoader\bin\x86\Release\InfoServicePluginLoader.exe</LocalFileName>
+        <ZipFileName>Installer{CopyFile}\{a5be1878-bd55-4f6f-99bd-6814838572e3}-InfoServicePluginLoader.exe</ZipFileName>
+        <DestinationFilename>%Plugins%\Windows\InfoServicePluginLoader.exe</DestinationFilename>
+      </FileItem>
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
+        <Param1 />
+        <UpdateOption>AlwaysOverwrite</UpdateOption>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_de.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{9e602d60-5799-4635-9f01-6b54773db66b}-strings_de.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_de.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_en.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_en.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{b820cf02-3b84-47f2-a703-5ce1991f1cf8}-strings_en.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_en.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_es.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_es.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{088d2880-eca6-485a-b299-eb29637c05a4}-strings_es.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_es.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_it.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_it.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{6f5091a8-ece4-4796-818f-60afbe2c1627}-strings_it.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_it.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_nl.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_nl.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{421f63ff-42e7-4b79-a624-06fa69112112}-strings_nl.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_nl.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_da.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_da.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{fa657c32-0ea8-44db-8c19-2f555a07eec1}-strings_da.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_da.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_fr.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_fr.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{3c1a5829-dff3-4016-a428-ec3e0c9668cc}-strings_fr.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_fr.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_en-US.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_en-US.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{5902a6e4-8e28-4059-a393-e1f604819973}-strings_en-US.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_en-US.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_en-GB.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_en-GB.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{f79f420f-58d7-4c52-8573-908a7c7ad905}-strings_en-GB.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_en-GB.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_PT-BR.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_PT-BR.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{ab6438f4-fe43-4cbc-8eb3-5a3219ceb5fb}-strings_PT-BR.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_PT-BR.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_el.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_el.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{b72e3f89-0bad-4847-b1c3-c1ad38f49e39}-strings_el.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_el.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_no.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_no.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{a8a5ac7d-af35-4f9c-b568-ce0912191380}-strings_no.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_no.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_pl.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_pl.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{52929b7d-1fbc-4d53-851e-5e49479397ac}-strings_pl.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_pl.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>AlwaysOverwrite</UpdateOption>
-        <LocalFileName>..\LastBuild\Language\InfoService\strings_cs.xml</LocalFileName>
+        <LocalFileName>..\InfoService\InfoService\GUIWindows\Language\InfoService\strings_cs.xml</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{fbae3ffc-00de-488e-b4a7-9aca62671fde}-strings_cs.xml</ZipFileName>
         <DestinationFilename>%Language%\InfoService\strings_cs.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.feeds.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{9e9edffe-b111-4ed1-a3ba-4b08f2391417}-infoservice.feeds.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{c98461c6-7c06-4255-96c8-e6020f8a5dd6}-infoservice.feeds.xml</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\infoservice.feeds.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.notifybar.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{944d880b-9d06-4165-902a-a1afde521169}-infoservice.notifybar.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{f231c2e4-8fee-41ac-a421-a5900ebe5954}-infoservice.notifybar.xml</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\infoservice.notifybar.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.twitter.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{5cc9e7b5-da51-4612-b5f7-8d36eaff81bc}-infoservice.twitter.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{76aededd-fc54-4b0d-888f-d985f22fd73d}-infoservice.twitter.xml</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\infoservice.twitter.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\infoservice.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{a1450673-85c7-4431-8b15-9f0f93e38739}-infoservice.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{4442d0f3-90c8-48ea-8e7d-b04a3a244e47}-infoservice.xml</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\infoservice.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedALL.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{8201c60c-f226-4c7c-81d6-996a556bd2fc}-defaultFeedALL.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{ebbfdaf5-507b-4b4c-a2de-cfa538310142}-defaultFeedALL.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedALL.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedAtom.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{d49512eb-91ed-4d33-98be-15e9f4a3972c}-defaultFeedAtom.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{062c767b-ce8b-4754-89cb-29b37f907e90}-defaultFeedAtom.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedAtom.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemAtom.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{9e83a402-57e3-4267-9c49-10e06d5feead}-defaultFeedItemAtom.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{2e118bfc-2b6a-4a54-984a-7ef6a44cd098}-defaultFeedItemAtom.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{f77708db-87fa-4c62-b608-f0778a771f2b}-defaultFeedItemAtomBig.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{d62c62f6-476c-4bb5-a899-67a57c2f1e87}-defaultFeedItemAtomBig.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRDF.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{95dd932e-3317-475c-823b-3922290e22e9}-defaultFeedItemRDF.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{1b21a563-76eb-49f4-8372-a92a24584516}-defaultFeedItemRDF.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{910e698c-30bc-419c-8965-5433cdf1bd47}-defaultFeedItemRDFBig.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{801c51e5-68ee-4024-b6ee-260c300914c5}-defaultFeedItemRDFBig.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRSS.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{5217e083-0d88-4d7c-8894-5e8703b0dacd}-defaultFeedItemRSS.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{71a1d613-03c0-40cd-9611-27136c20b384}-defaultFeedItemRSS.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{50b68198-098a-42c3-9757-dabc404b3fbc}-defaultFeedItemRSSBig.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{08cd47ef-3aa6-4cef-9df8-c1f9eb0471f9}-defaultFeedItemRSSBig.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedRDF.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{6d25c008-0f0c-4cbb-a50e-5720f36d7aa3}-defaultFeedRDF.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{46a1462d-01dc-4f35-ac8d-b8011527e757}-defaultFeedRDF.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedRDF.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultFeedRSS.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{4b010fb6-fdce-4818-bfa7-9fb9d272dc99}-defaultFeedRSS.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{2d37df51-b422-40ca-b348-262e3108c5f9}-defaultFeedRSS.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultFeedRSS.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\defaultTwitter.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{5084ee01-e80c-4ed4-87d1-289c8e0dddf2}-defaultTwitter.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{6f419ba2-c709-4cbe-a5cd-8e2d04096cc5}-defaultTwitter.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\defaultTwitter.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\TITANIUS\Media\InfoService\dialog_notifybar.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{458b417c-40bf-4615-93b0-e1d6b7824821}-dialog_notifybar.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{4eff4eaa-d1bb-4f8d-9943-c83e5459e059}-dialog_notifybar.png</ZipFileName>
         <DestinationFilename>%Skin%\TITANIUS\Media\InfoService\dialog_notifybar.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.feeds.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{ef46f55e-ad36-447c-b7bd-fd8d0d88bd53}-infoservice.feeds.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{9fd21b6c-f332-41a3-b1f0-5b333b6fd0df}-infoservice.feeds.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\infoservice.feeds.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.notifybar.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{d6e04cba-c3b6-4973-acf9-6ff84e6c9e71}-infoservice.notifybar.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{e43031c3-2275-4c42-bd43-1c7127365598}-infoservice.notifybar.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\infoservice.notifybar.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.twitter.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{190507b5-e6d4-4cfd-8550-4604656742fc}-infoservice.twitter.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{0c5798a0-63c3-4edb-9284-1078495cb5a4}-infoservice.twitter.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\infoservice.twitter.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\infoservice.xml</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{40dee6d4-c6de-48fd-848b-e44ee1890cf2}-infoservice.xml</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{384b386a-6c1c-4240-a807-d84033133d10}-infoservice.xml</ZipFileName>
         <DestinationFilename>%Skin%\Titan\infoservice.xml</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedALL.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{3af623ab-e87c-4d0f-aff4-21f62c322fa3}-defaultFeedALL.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{4a6e683e-9311-4c7e-b58f-7dba005f9301}-defaultFeedALL.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedALL.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedAtom.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{4b3739c9-5016-4fd1-878d-1b0a1ea3583a}-defaultFeedAtom.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{a02c1c54-a80e-4822-a520-436ec164de89}-defaultFeedAtom.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedAtom.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemAtom.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{45a3f4b6-85c0-4e05-92e0-9a2874470f12}-defaultFeedItemAtom.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{575368a6-cccd-40a2-b3e4-22845b77eb54}-defaultFeedItemAtom.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemAtom.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemAtomBig.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{4077cb4c-1882-4bf9-b524-796c6b3a9c46}-defaultFeedItemAtomBig.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{965f1b8c-b723-4c1a-9a96-a46c1ef07fa0}-defaultFeedItemAtomBig.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemAtomBig.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRDF.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{c76abb5c-1c40-4457-a2f2-c5b392fce31b}-defaultFeedItemRDF.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{b740c27d-efb6-4d6b-9cf5-5a39680c6a43}-defaultFeedItemRDF.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRDF.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRDFBig.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{4469f595-6616-4a0b-9871-2944d7a9bd1f}-defaultFeedItemRDFBig.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{2810e4d6-d2bd-4f4a-81fc-9763de7f277a}-defaultFeedItemRDFBig.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRDFBig.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRSS.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{f37cd192-dfdb-40d3-b86d-1c97113e63e7}-defaultFeedItemRSS.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{21a8c319-afe4-4ea8-8d94-1deb4c04ce81}-defaultFeedItemRSS.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRSS.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedItemRSSBig.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{a5aee53c-0571-4b43-8d8c-ac8109c25318}-defaultFeedItemRSSBig.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{f83cd5ba-7b1a-4702-8ca0-3f2a7f0a96ad}-defaultFeedItemRSSBig.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedItemRSSBig.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedRDF.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{c78cd519-ddb6-49d8-845a-ed7c0556ce8e}-defaultFeedRDF.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{be79904e-e282-4736-ad8d-bb6787293da9}-defaultFeedRDF.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedRDF.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultFeedRSS.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{22c19ad0-0878-4730-be2b-e33d5531b381}-defaultFeedRSS.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{d8555967-6c89-471a-b604-5c68712fe9fb}-defaultFeedRSS.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultFeedRSS.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\defaultTwitter.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{b668fb62-6aaa-4f43-aa30-0250daab23bf}-defaultTwitter.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{b5e302ea-5682-4a4d-9bdf-7183c183f409}-defaultTwitter.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\defaultTwitter.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false">
+      <FileItem InstallType="CopyFile" SystemFile="false" Modified="false" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\InfoService\InfoService\GUIWindows\Skin\Titan\Media\InfoService\dialog_notifybar.png</LocalFileName>
-        <ZipFileName>Installer{CopyFile}\{aebef2a2-1d20-4fc5-9630-6048ac13c78f}-dialog_notifybar.png</ZipFileName>
+        <ZipFileName>Installer{CopyFile}\{9ea3185e-466c-47ba-8bdd-4434bc7c29df}-dialog_notifybar.png</ZipFileName>
         <DestinationFilename>%Skin%\Titan\Media\InfoService\dialog_notifybar.png</DestinationFilename>
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
+      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\Images\InfoService_tower.png</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{2203c685-4aca-41cf-895c-cbdb31d28fa5}-InfoService_tower.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
+      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\Images\InfoService_head.png</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{752502a8-f5e3-4961-9f51-7501ac34e9f4}-InfoService_head.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
+      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>..\Images\InfoService_icon_full.png</LocalFileName>
         <ZipFileName>Installer{CopyFile}\{ad9890aa-e457-4b28-a8d2-aa841a0bbfcc}-InfoService_icon_full.png</ZipFileName>
         <DestinationFilename />
       </FileItem>
-      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true">
+      <FileItem InstallType="CopyFile" SystemFile="true" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName>readme.rtf</LocalFileName>
@@ -2016,7 +2064,7 @@ Version v0.1:
   </UniqueFileList>
   <ProjectSettings>
     <FolderGroups>
-      <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true">
+      <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName />
@@ -2026,7 +2074,7 @@ Version v0.1:
         <Group>TITANIUS</Group>
         <Recursive>true</Recursive>
       </FolderGroup>
-      <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true">
+      <FolderGroup InstallType="CopyFile" SystemFile="false" Modified="true" Condition="None">
         <Param1 />
         <UpdateOption>OverwriteIfOlder</UpdateOption>
         <LocalFileName />

@@ -1,6 +1,12 @@
 @ECHO OFF
 CLS
 
+IF NOT "%1"=="" (
+  SET ARCH=%1
+) ELSE (
+  SET ARCH=x86
+)
+
 Title Building InfoService (RELEASE)
 CD ..
 
@@ -20,7 +26,7 @@ set REVISION=%REVISION: =%
 "Tools\Tools\sed.exe" -i -r "s/(Assembly(File)?Version\(.[0-9]+\.[0-9]+\.[0-9]+\.)[0-9]+(.\))/\1%REVISION%\3/g" "InfoService\InfoService\Properties\AssemblyInfo.cs"
 
 :: Build
-"%MSBUILD_PATH%" /target:Rebuild /property:Configuration=RELEASE /fl /flp:logfile=InfoService.log;verbosity=diagnostic InfoService.sln
+"%MSBUILD_PATH%" /target:Rebuild /property:Configuration=RELEASE /property:Platform=%ARCH% /fl /flp:logfile=InfoService.log;verbosity=diagnostic InfoService\InfoService.sln
 
 :: Revert version
 git checkout "InfoService\InfoService\Properties\AssemblyInfo.cs"
