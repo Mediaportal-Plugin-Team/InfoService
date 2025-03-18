@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>InfoService</RootNamespace>
     <AssemblyName>InfoService</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -47,7 +47,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -57,7 +58,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,6 +71,7 @@
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -80,19 +83,24 @@
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Common.GUIPlugins">
-      <HintPath>..\Externals\MP\Common.GUIPlugins.dll</HintPath>
+      <HintPath>C:\Program Files\Team MediaPortal\MediaPortal\plugins\windows\Common.GUIPlugins.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Common.Utils">
-      <HintPath>..\Externals\MP\Common.Utils.dll</HintPath>
+      <HintPath>C:\Program Files\Team MediaPortal\MediaPortal\Common.Utils.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Core">
-      <HintPath>..\Externals\MP\Core.dll</HintPath>
+      <HintPath>C:\Program Files\Team MediaPortal\MediaPortal\Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Dialogs">
-      <HintPath>..\Externals\MP\Dialogs.dll</HintPath>
+      <HintPath>C:\Program Files\Team MediaPortal\MediaPortal\plugins\windows\Dialogs.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="envdte, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <SpecificVersion>False</SpecificVersion>
@@ -124,6 +132,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Externals\NotificationBar\MPNotificationBar.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Team MediaPortal\MediaPortal\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -138,7 +151,8 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="Utils">
-      <HintPath>..\Externals\MP\Utils.dll</HintPath>
+      <HintPath>C:\Program Files\Team MediaPortal\MediaPortal\Utils.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -249,199 +263,6 @@
     <Compile Include="Twitter\TwitterConnector\ExtensionMethods.cs" />
     <Compile Include="Twitter\TwitterConnector\Json\TimelineJsonParser.cs" />
     <Compile Include="Twitter\TwitterConnector\Json\TwitterJsonParser.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Bson\BsonBinaryType.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Bson\BsonBinaryWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Bson\BsonObjectId.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Bson\BsonReader.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Bson\BsonToken.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Bson\BsonType.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Bson\BsonWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\ConstructorHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\BinaryConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\BsonObjectIdConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\CustomCreationConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\DataSetConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\DataTableConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\DateTimeConverterBase.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\DiscriminatedUnionConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\EntityKeyMemberConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\ExpandoObjectConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\IsoDateTimeConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\JavaScriptDateTimeConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\JsonValueConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\KeyValuePairConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\RegexConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\StringEnumConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\VersionConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Converters\XmlNodeConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\DateFormatHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\DateParseHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\DateTimeZoneHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\DefaultValueHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\FloatFormatHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\FloatParseHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\FormatterAssemblyStyle.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Formatting.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\IJsonLineInfo.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonArrayAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonConstructorAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonContainerAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonConvert.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonConverterAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonConverterCollection.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonDictionaryAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonException.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonExtensionDataAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonIgnoreAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonObjectAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonPosition.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonPropertyAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonReader.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonReaderException.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonRequiredAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonSerializationException.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonSerializer.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonSerializerSettings.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonTextReader.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonTextWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonToken.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonValidatingReader.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\JsonWriterException.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\Extensions.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\IJEnumerable.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JArray.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JConstructor.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JContainer.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JEnumerable.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JObject.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JProperty.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JPropertyDescriptor.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JPropertyKeyedCollection.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JRaw.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonMergeSettings.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonPath\ArrayIndexFilter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonPath\ArrayMultipleIndexFilter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonPath\ArraySliceFilter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonPath\FieldFilter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonPath\FieldMultipleFilter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonPath\JPath.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonPath\PathFilter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonPath\QueryExpression.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonPath\QueryFilter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JsonPath\ScanFilter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JToken.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JTokenEqualityComparer.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JTokenReader.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JTokenType.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JTokenWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\JValue.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Linq\MergeArrayHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\MemberSerialization.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\MetadataPropertyHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\MissingMemberHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\NullValueHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\ObjectCreationHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\PreserveReferencesHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\ReferenceLoopHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Required.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\Extensions.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchema.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaBuilder.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaConstants.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaException.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaGenerator.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaModel.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaModelBuilder.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaNode.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaNodeCollection.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaResolver.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaType.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\JsonSchemaWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\UndefinedSchemaIdHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\ValidationEventArgs.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Schema\ValidationEventHandler.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\SerializationBinder.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\CachedAttributeGetter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\CamelCasePropertyNamesContractResolver.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\DefaultContractResolver.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\DefaultReferenceResolver.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\DefaultSerializationBinder.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\DiagnosticsTraceWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\DynamicValueProvider.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\ErrorContext.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\ErrorEventArgs.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\ExpressionValueProvider.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\IAttributeProvider.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\IContractResolver.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\IReferenceResolver.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\ITraceWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\IValueProvider.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonArrayContract.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonContainerContract.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonContract.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonDictionaryContract.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonDynamicContract.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonFormatterConverter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonISerializableContract.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonLinqContract.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonObjectContract.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonPrimitiveContract.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonProperty.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonPropertyCollection.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonSerializerInternalBase.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonSerializerInternalReader.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonSerializerInternalWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonSerializerProxy.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonStringContract.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\JsonTypeReflector.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\MemoryTraceWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\ObjectConstructor.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\OnErrorAttribute.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\ReflectionAttributeProvider.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\ReflectionValueProvider.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\TraceJsonReader.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Serialization\TraceJsonWriter.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\StringEscapeHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\TraceLevel.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\TypeNameHandling.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\Base64Encoder.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\BidirectionalDictionary.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\CollectionUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\CollectionWrapper.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\ConvertUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\DateTimeParser.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\DateTimeUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\DictionaryWrapper.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\DynamicProxy.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\DynamicProxyMetaObject.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\DynamicReflectionDelegateFactory.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\DynamicUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\EnumUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\EnumValue.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\ExpressionReflectionDelegateFactory.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\FSharpUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\ILGeneratorExtensions.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\ImmutableCollectionsUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\JavaScriptUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\JsonTokenUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\LateBoundReflectionDelegateFactory.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\LinqBridge.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\MathUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\MethodCall.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\MiscellaneousUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\PropertyNameTable.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\ReflectionDelegateFactory.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\ReflectionObject.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\ReflectionUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\StringBuffer.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\StringReference.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\StringUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\ThreadSafeStore.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\TypeExtensions.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\Utilities\ValidationUtils.cs" />
-    <Compile Include="Twitter\TwitterConnector\Libraries\Newtonsoft.Json\WriteState.cs" />
     <Compile Include="Twitter\TwitterConnector\OAuth\AccessToken.cs" />
     <Compile Include="Twitter\TwitterConnector\OAuth\Consumer.cs" />
     <Compile Include="Twitter\TwitterConnector\OAuth\IToken.cs" />
@@ -604,7 +425,8 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(TargetPath) "C:\Program Files (x86)\Team MediaPortal\MediaPortal\plugins\Windows\" /Y</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
@@ -612,7 +434,7 @@
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_ConfigurationName="Release" BuildVersion_BuildVersioningStyle="Increment.Increment.Increment.DeltaBaseDate" BuildVersion_StartDate="2009/11/6" />
+      <UserProperties BuildVersion_StartDate="2009/11/6" BuildVersion_BuildVersioningStyle="Increment.Increment.Increment.DeltaBaseDate" BuildVersion_ConfigurationName="Release" BuildVersion_UpdateFileVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.build\GitAssemblyVersion.targets" />
