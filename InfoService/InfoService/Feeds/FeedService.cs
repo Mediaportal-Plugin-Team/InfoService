@@ -510,7 +510,24 @@ namespace InfoService.Feeds
                         notificationBarPluginEnabled =
                             settings.GetValueAsString("plugins", "MPNotificationBar", "no") == "yes";
                     }
-                    if (InfoServiceUtils.IsAssemblyAvailable("MPNotificationBar", new Version(0, 8, 3, 0)) &&
+
+                    //get MediaPortal central notification service
+                    MediaPortal.Services.INotifyMessageService srv = MediaPortal.Services.GlobalServiceProvider.Get<MediaPortal.Services.INotifyMessageService>();
+                    if (srv != null)
+                    {
+                        string strOriginLogo = GUIGraphicsContext.Skin + @"\media\InfoService\defaultFeedRSS.png";
+                        feedItem.Value.ForEach(item =>
+                        {
+                            srv.MessageRegister(item.Title, feedItem.Key.Title, InfoServiceCore.GUIInfoServiceId, item.PublishDate, out string strMsgId,
+                                strOriginLogo: strOriginLogo,
+                                strDescription: item.Description,
+                                strAuthor: item.Author,
+                                strThumb: item.ImageUrl,
+                                cls: MediaPortal.Services.NotifyMessageClassEnum.News,
+                                bActivatePlugin: true);
+                        });
+                    }
+                    else if (InfoServiceUtils.IsAssemblyAvailable("MPNotificationBar", new Version(0, 8, 3, 0)) &&
                         System.IO.File.Exists(GUIGraphicsContext.Skin + @"\NotificationBar.xml") &&
                         notificationBarPluginEnabled)
                     {
@@ -826,7 +843,7 @@ namespace InfoService.Feeds
             }
         }
 
-        public static void AddFeed(string url, string ownFeedTitle, int defaultZoom, string ownFeedImagePath, List<FeedItemFilter> itemFilters, bool showPopup)
+        public static void AddFeed(string url, string ownFeedTitle, int defaultZoom, string ownFeedImagePath, List<FeedItemFilter> itemFilters, bool showPopup, DateTime dtLastPublish)
         {
             //bool cacheError = false;
             //ExFeed addFeed = null;
@@ -861,7 +878,7 @@ namespace InfoService.Feeds
             //{
             //    Logger.WriteLog("There were a problem when adding a new feed. This error message should no occur. Please contact the plugin author. This feed is now disabled.", LogLevel.Warning, InfoServiceModul.Feed);
             //}
-            ExFeed addFeed = new ExFeed(url, ownFeedTitle, defaultZoom, ownFeedImagePath, CacheFolder, itemFilters, showPopup);
+            ExFeed addFeed = new ExFeed(url, ownFeedTitle, defaultZoom, ownFeedImagePath, CacheFolder, itemFilters, showPopup, dtLastPublish);
             if (ShowPopup) addFeed.OnNewItems += new Feed.OnNewItemsEventHandler(addFeed_OnNewItems);
             _feeds.Add(addFeed);
             Logger.WriteLog(string.Format("Added new feed (Title: {0}, Default Zoom: {1}, Own Feed Image Path: {2}, Show Popup: {3})", ownFeedTitle, defaultZoom, ownFeedImagePath, showPopup), LogLevel.Info, InfoServiceModul.Feed);

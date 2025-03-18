@@ -513,7 +513,21 @@ namespace InfoService.Twitter
                     ? pair.Value[0].User.PicturePath
                     : GUIGraphicsContext.Skin + @"\media\InfoService\defaultTwitter.png";
 
-                if (InfoServiceUtils.IsAssemblyAvailable("MPNotificationBar", new Version(0, 8, 3, 0)) &&
+                //get MediaPortal central notification service
+                MediaPortal.Services.INotifyMessageService srv = MediaPortal.Services.GlobalServiceProvider.Get<MediaPortal.Services.INotifyMessageService>();
+                if (srv != null)
+                {
+                    string strOriginLogo = GUIGraphicsContext.Skin + @"\media\InfoService\defaultTwitter.png";
+                    pair.Value.ForEach(item =>
+                    {
+                        srv.MessageRegister(item.Text + " " + GUILocalizeStrings.Get(1024) + " @" + user,
+                            pair.Key.Type + " Timeline", InfoServiceCore.GUIInfoServiceId, item.PublishDate, out string strMsgId,
+                            strOriginLogo: strOriginLogo,
+                            cls: MediaPortal.Services.NotifyMessageClassEnum.News,
+                            bActivatePlugin: true);
+                    });
+                }
+                else if (InfoServiceUtils.IsAssemblyAvailable("MPNotificationBar", new Version(0, 8, 3, 0)) &&
                     System.IO.File.Exists(GUIGraphicsContext.Skin + @"\NotificationBar.xml") &&
                     notificationBarPluginEnabled)
                 {

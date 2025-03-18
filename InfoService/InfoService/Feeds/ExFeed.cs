@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using FeedReader;
 using FeedReader.Data;
@@ -32,7 +33,7 @@ namespace InfoService.Feeds
             }
 
         }
-        public ExFeed(string url, string feedTitle, int defaultZoom, string feedImagePath, string cacheFolder, List<FeedItemFilter> itemFilters, bool showPopup) : base(url, cacheFolder, itemFilters, true)
+        public ExFeed(string url, string feedTitle, int defaultZoom, string feedImagePath, string cacheFolder, List<FeedItemFilter> itemFilters, bool showPopup, DateTime dtLastPublish) : base(url, cacheFolder, itemFilters, true)
         {
             Items = new List<ExFeedItem>();
             OwnFeedTitle = feedTitle;
@@ -42,7 +43,8 @@ namespace InfoService.Feeds
             {
                 OwnFeedImagePath = feedImagePath;
             }
-            
+
+            LastPublish = dtLastPublish;
         }
         public ExFeed(string url, string feedTitle, int defaultZoom, string feedImagePath, List<FeedItemFilter> itemFilters, bool showPopup) : base(url, itemFilters)
         {

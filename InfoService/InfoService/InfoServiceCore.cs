@@ -132,7 +132,7 @@ namespace InfoService
                     }
                 }  
             }*/
- 
+
             if (FeedService.Enabled && TwitterService.Enabled)
             {
                 PropertyUtils.SetProperty("#currentmodule", "InfoService");
@@ -303,7 +303,7 @@ namespace InfoService
                                                            filter.CleanBefore));
                         }
                     }
-                    FeedService.AddFeed(feed.UrlPath, feed.Title, feed.DefaultZoom, feed.ImagePath, fFilter, feed.ShowPopup);
+                    FeedService.AddFeed(feed.UrlPath, feed.Title, feed.DefaultZoom, feed.ImagePath, fFilter, feed.ShowPopup, feed.LastPublish);
                 }
                 PropertyUtils.SetProperty(PropertyUtils.Properties.Feed.Separator, FeedService.Separator);
                 PropertyUtils.SetProperty(PropertyUtils.Properties.Feed.SeparatorAll, FeedService.SeparatorAll);
@@ -525,6 +525,7 @@ namespace InfoService
             Logger.WriteLog("Saving settings to InfoService.xml...", LogLevel.Debug, InfoServiceModul.InfoService);
             try
             {
+                SettingsManager.Properties.FeedSettings.Feeds.ForEach(f => f.LastPublish = FeedService.Feeds.Find(feed => feed.UrlPath == f.UrlPath).LastPublish);
                 SettingsManager.Save(Config.GetFile(Config.Dir.Config, "InfoService.xml"));
                 Logger.WriteLog("Saving settings to InfoService.xml successfull.", LogLevel.Debug, InfoServiceModul.InfoService);
             }

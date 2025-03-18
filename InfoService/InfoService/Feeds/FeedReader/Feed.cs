@@ -201,6 +201,7 @@ namespace FeedReader
         public DateTime LastUpdate { get; set; }
         public bool LastUpdateSuccessful { get; set; }
         public Guid Guid { get; private set; }
+        public DateTime LastPublish { get; set; }
 
         public virtual bool Update(bool downloadImages)
         {
@@ -302,11 +303,28 @@ namespace FeedReader
             }
             else
             {
-                if (oldLastUpdateSuccessful) CheckForNewItems(oldItems, Items);
+                if (oldLastUpdateSuccessful) 
+                    CheckForNewItems(oldItems, Items);
+                else
+                    CheckForNewItems(Items);
+
+                this.LastPublish = Items.Count > 0 ? Items.Max(item => item.PublishDate) : DateTime.MinValue;
+
                 return true;
             }
         }
 
+        private void CheckForNewItems(List<FeedItem> items)
+        {
+            if (items.Count > 1 && OnNewItems != null)
+            {
+                List<FeedItem> newItems = items.Where(item => item.PublishDate > this.LastPublish).ToList();
+                if (newItems.Count > 0)
+                {
+                    OnNewItems((Feed)this.Clone(), newItems.CloneList<FeedItem>());
+                }
+            }
+        }
         private void CheckForNewItems(List<FeedItem> oldItems, List<FeedItem> items)
         {
             if (oldItems.Count >= 1 && items.Count >= 1 && OnNewItems != null)
@@ -332,6 +350,7 @@ namespace FeedReader
             feed.LastUpdate = this.LastUpdate;
             feed.LastUpdateSuccessful = this.LastUpdateSuccessful;
             feed.Guid = this.Guid;
+            feed.LastPublish = this.LastPublish;
             return feed;
         }
 

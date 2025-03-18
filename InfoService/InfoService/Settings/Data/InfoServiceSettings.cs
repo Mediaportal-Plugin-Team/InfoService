@@ -132,6 +132,7 @@ namespace InfoService.Settings.Data
         public int DefaultZoom { get; set; }
         public string ImagePath { get; set; }
         public bool ShowPopup { get; set; }
+        public DateTime LastPublish { get; set; } = DateTime.MinValue;
     }
     #endregion
 
