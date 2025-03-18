@@ -12,10 +12,11 @@ namespace FeedReader.Xml.Interfaces
     {
         Image GetParsedImage();
         string GetImagePath();
-        bool TryParseFeedImageUrl(XDocument xmlFeed, string cacheFolder, string feedTitle);
-        bool TryParseFeedItemImageUrl(XDocument xmlFeed, string cacheFolder,string feedTitle, string feedItemTitle, int itemNumber);
-        bool TryParseFeedImageUrl(XDocument xmlFeed, string feedTitle);
-        bool TryParseFeedItemImageUrl(XDocument xmlFeed, string feedTitle, string feedItemTitle, int itemNumber);
+        string GetImageUrl();
+        bool TryParseFeedImageUrl(XDocument xmlFeed, string cacheFolder, string feedTitle, bool bUrlOnly = false);
+        bool TryParseFeedItemImageUrl(XDocument xmlFeed, string cacheFolder,string feedTitle, string feedItemTitle, int itemNumber, bool bUrlOnly = false);
+        bool TryParseFeedImageUrl(XDocument xmlFeed, string feedTitle, bool bUrlOnly = false);
+        bool TryParseFeedItemImageUrl(XDocument xmlFeed, string feedTitle, string feedItemTitle, int itemNumber, bool bUrlOnly = false);
         bool DownloadAndCheckFeedImageValid(string cacheFolder, string url, string feedTitle);
         bool DownloadAndCheckFeedItemImageValid(string cacheFolder, string url, string feedTitle, string feedItemTitle);
     }

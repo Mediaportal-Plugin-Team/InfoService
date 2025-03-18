@@ -16,29 +16,49 @@ namespace FeedReader.Xml
     {
         private Image _feedImage;
         private string _feedImagePath = string.Empty;
-        public bool TryParseFeedImageUrl(XDocument xmlFeed, string cacheFolder, string feedTitle)
+        private string _feedImageUrl = string.Empty;
+
+        public bool TryParseFeedImageUrl(XDocument xmlFeed, string cacheFolder, string feedTitle, bool bUrlOnly = false)
         {
             bool returnValue = false;
             _feedImage = null;
             _feedImagePath = string.Empty;
 
             //1. Try
-            string url = FeedXmlParser.ParseString(xmlFeed.Descendants("channel").Descendants("image").Elements("url"), "channel/image/url");
-            returnValue = DownloadAndCheckFeedImageValid(cacheFolder, url, feedTitle);
-            if (returnValue) return true;
+            this._feedImageUrl = FeedXmlParser.ParseString(xmlFeed.Descendants("channel").Descendants("image").Elements("url"), "channel/image/url");
+            if (bUrlOnly)
+            {
+                if (Uri.IsWellFormedUriString(this._feedImageUrl, UriKind.Absolute))
+                    return true;
+            }
+            else
+            {
+                returnValue = DownloadAndCheckFeedImageValid(cacheFolder, this._feedImageUrl, feedTitle);
+                if (returnValue)
+                    return true;
+            }
 
             //2. Try
-            url = FeedXmlParser.ParseString(xmlFeed.Descendants("channel").Descendants("image").Elements("link"), "channel/image/link");
-            url += FeedXmlParser.ParseString(xmlFeed.Descendants("channel").Descendants("image").Elements("url"), "channel/image/url");
-            returnValue = DownloadAndCheckFeedImageValid(cacheFolder, url, feedTitle);
-            if (returnValue) return true;
+            this._feedImageUrl = FeedXmlParser.ParseString(xmlFeed.Descendants("channel").Descendants("image").Elements("link"), "channel/image/link");
+            this._feedImageUrl += FeedXmlParser.ParseString(xmlFeed.Descendants("channel").Descendants("image").Elements("url"), "channel/image/url");
+            if (bUrlOnly)
+            {
+                if (Uri.IsWellFormedUriString(this._feedImageUrl, UriKind.Absolute))
+                    return true;
+            }
+            else
+            {
+                returnValue = DownloadAndCheckFeedImageValid(cacheFolder, this._feedImageUrl, feedTitle);
+                if (returnValue) 
+                    return true;
+            }
 
 
             LogEvents.InvokeOnDebug(new FeedArgs("No feed image could be parsed"));
             return false;
         }
 
-        public bool TryParseFeedItemImageUrl(XDocument xmlFeed, string cacheFolder, string feedTitle, string feedItemTitle, int itemNumber)
+        public bool TryParseFeedItemImageUrl(XDocument xmlFeed, string cacheFolder, string feedTitle, string feedItemTitle, int itemNumber, bool bUrlOnly = false)
         {
             bool returnValue = false;
             XElement item = xmlFeed.Descendants("item").ElementAt(itemNumber);
@@ -48,35 +68,68 @@ namespace FeedReader.Xml
             {
 
                 //1. Try
-                string url = FeedXmlParser.ParseString(item.Descendants("image").Elements("url"), "item/image/url");
-                returnValue = DownloadAndCheckFeedItemImageValid(cacheFolder, url, feedTitle, feedItemTitle);
-                if (returnValue) return true;
+                this._feedImageUrl = FeedXmlParser.ParseString(item.Descendants("image").Elements("url"), "item/image/url");
+                if (bUrlOnly)
+                {
+                    if (Uri.IsWellFormedUriString(this._feedImageUrl, UriKind.Absolute))
+                        return true;
+                }
+                else
+                {
+                    returnValue = DownloadAndCheckFeedItemImageValid(cacheFolder, this._feedImageUrl, feedTitle, feedItemTitle);
+                    if (returnValue)
+                        return true;
+                }
 
                 //2. Try
-                url = FeedXmlParser.ParseString(item.Descendants("image").Elements("link"), "item/image/link");
-                url += FeedXmlParser.ParseString(item.Descendants("image").Elements("url"), "item/image/url");
-                returnValue = DownloadAndCheckFeedItemImageValid(cacheFolder, url, feedTitle, feedItemTitle);
-                if (returnValue) return true;
+                this._feedImageUrl = FeedXmlParser.ParseString(item.Descendants("image").Elements("link"), "item/image/link");
+                this._feedImageUrl += FeedXmlParser.ParseString(item.Descendants("image").Elements("url"), "item/image/url");
+                if (bUrlOnly)
+                {
+                    if (Uri.IsWellFormedUriString(this._feedImageUrl, UriKind.Absolute))
+                        return true;
+                }
+                else
+                {
+                    returnValue = DownloadAndCheckFeedItemImageValid(cacheFolder, this._feedImageUrl, feedTitle, feedItemTitle);
+                    if (returnValue)
+                        return true;
+                }
 
                 //3. Try
                 string enclosureType = FeedXmlParser.ParseString(item.Element("enclosure"), "type", "item/enclosure/attribute[type]");
                 if (Utils.IsEnclosureTypeImage(enclosureType))
                 {
                     //LogEvents.InvokeOnDebug(new FeedArgs("Enclosure of feed[" + rFeed.Title + "][" + feedItem.Title + "][" + i + "] item is an image. Parse image url..."));
-                    url = FeedXmlParser.ParseString(item.Element("enclosure"), "url", "item/enclosure/attribute[url]");
-                    returnValue = DownloadAndCheckFeedItemImageValid(cacheFolder, url, feedTitle, feedItemTitle);
-                    if (returnValue) return true;
+                    this._feedImageUrl = FeedXmlParser.ParseString(item.Element("enclosure"), "url", "item/enclosure/attribute[url]");
+                    if (bUrlOnly)
+                    {
+                        if (Uri.IsWellFormedUriString(this._feedImageUrl, UriKind.Absolute))
+                            return true;
+                    }
+                    else
+                    {
+                        returnValue = DownloadAndCheckFeedItemImageValid(cacheFolder, this._feedImageUrl, feedTitle, feedItemTitle);
+                        if (returnValue) 
+                            return true;
+                    }
                 }
-
-
-
 
                 //Last Try...
                 LogEvents.InvokeOnDebug(new FeedArgs("Try to get feed item image out of description field..."));
                 string description = FeedXmlParser.ParseString(item.Element("description"), "item/description");
-                url = Utils.GetImageOutOfDescription(Utils.ReplaceHTMLSpecialChars(description));
-                returnValue = DownloadAndCheckFeedItemImageValid(cacheFolder, url, feedTitle, feedItemTitle);
-                if (returnValue) return true;
+                this._feedImageUrl = Utils.GetImageOutOfDescription(Utils.ReplaceHTMLSpecialChars(description));
+                if (bUrlOnly)
+                {
+                    if (Uri.IsWellFormedUriString(this._feedImageUrl, UriKind.Absolute))
+                        return true;
+                }
+                else
+                {
+                    returnValue = DownloadAndCheckFeedItemImageValid(cacheFolder, this._feedImageUrl, feedTitle, feedItemTitle);
+                    if (returnValue) 
+                        return true;
+                }
 
             }
             LogEvents.InvokeOnDebug(new FeedArgs("No feed item image could be parsed"));
@@ -91,6 +144,11 @@ namespace FeedReader.Xml
         public string GetImagePath()
         {
             return _feedImagePath;
+        }
+
+        public string GetImageUrl()
+        {
+            return _feedImageUrl;
         }
 
         public bool DownloadAndCheckFeedImageValid(string cacheFolder, string url, string feedTitle)
@@ -130,14 +188,14 @@ namespace FeedReader.Xml
         }
 
 
-        public bool TryParseFeedImageUrl(XDocument xmlFeed, string feedTitle)
+        public bool TryParseFeedImageUrl(XDocument xmlFeed, string feedTitle, bool bUrlOnly = false)
         {
-            return TryParseFeedImageUrl(xmlFeed, string.Empty, feedTitle);
+            return TryParseFeedImageUrl(xmlFeed, string.Empty, feedTitle, bUrlOnly);
         }
 
-        public bool TryParseFeedItemImageUrl(XDocument xmlFeed, string feedTitle, string feedItemTitle, int itemNumber)
+        public bool TryParseFeedItemImageUrl(XDocument xmlFeed, string feedTitle, string feedItemTitle, int itemNumber, bool bUrlOnly = false)
         {
-            return TryParseFeedItemImageUrl(xmlFeed, string.Empty, feedTitle, feedItemTitle, itemNumber);
+            return TryParseFeedItemImageUrl(xmlFeed, string.Empty, feedTitle, feedItemTitle, itemNumber, bUrlOnly);
         }
     }
 }

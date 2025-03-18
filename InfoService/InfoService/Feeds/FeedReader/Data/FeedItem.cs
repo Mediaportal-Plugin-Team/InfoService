@@ -15,6 +15,7 @@ namespace FeedReader.Data
         public string Description { get; set; }
         public Image Image { get; set; }
         public string ImagePath { get; set; }
+        public string ImageUrl { get; set; }
         public DateTime PublishDate { get; set; }
         public string Url { get; set; }
         public int Index { get; set; }
@@ -27,6 +28,7 @@ namespace FeedReader.Data
             newItem.Description = this.Description;
             if(this.Image != null) newItem.Image = this.Image.Clone() as Image;
             newItem.ImagePath = this.ImagePath;
+            newItem.ImageUrl = this.ImageUrl;
             newItem.PublishDate = this.PublishDate;
             newItem.Url = this.Url;
             newItem.Index = this.Index;

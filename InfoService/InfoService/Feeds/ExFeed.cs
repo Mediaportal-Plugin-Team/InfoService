@@ -75,6 +75,7 @@ namespace InfoService.Feeds
                 nItem.Description = feedItem.Description;
                 nItem.Image = feedItem.Image;
                 nItem.ImagePath = feedItem.ImagePath;
+                nItem.ImageUrl = feedItem.ImageUrl;
                 nItem.PublishDate = feedItem.PublishDate;
                 nItem.Title = feedItem.Title;
                 nItem.Url = feedItem.Url;

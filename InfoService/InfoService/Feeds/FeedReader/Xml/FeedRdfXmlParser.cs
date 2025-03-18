@@ -79,9 +79,9 @@ namespace FeedReader.Xml
                         feedItem.PublishDate = FeedXmlParser.ParseDateTime(item.Element("date"), "item[" + i + "]/date");
                         string description = FeedXmlParser.ParseString(item.Element("description"), "item[" + i + "]/description");
                         LogEvents.InvokeOnDebug(new FeedArgs("Try to get feed[" + rFeed.Title + "][" + feedItem.Title + "][" + i + "] item image..."));
+                        bool parseSuccess = false;
                         if (downloadImages)
                         {
-                            bool parseSuccess = false;
                             if (_useCache) parseSuccess = imageParser.TryParseFeedItemImageUrl(xmlFeed, _cacheFolder, rFeed.Title, feedItem.Title, i - 1);
                             else parseSuccess = imageParser.TryParseFeedItemImageUrl(xmlFeed, rFeed.Title, feedItem.Title, i - 1);
                             if (parseSuccess)
@@ -91,10 +91,20 @@ namespace FeedReader.Xml
                                     feedItem.Image = imageParser.GetParsedImage();
                                     feedItem.ImagePath = string.Empty;
                                 }
-                                else feedItem.ImagePath = imageParser.GetImagePath();
+                                else 
+                                    feedItem.ImagePath = imageParser.GetImagePath();
                             }
                         }
-  
+                        else
+                        {
+                            if (_useCache)
+                                parseSuccess = imageParser.TryParseFeedItemImageUrl(xmlFeed, _cacheFolder, rFeed.Title, feedItem.Title, i - 1, true);
+                            else
+                                parseSuccess = imageParser.TryParseFeedItemImageUrl(xmlFeed, rFeed.Title, feedItem.Title, i - 1, true);
+                        }
+
+                        if (parseSuccess)
+                            feedItem.ImageUrl = imageParser.GetImageUrl();
                         feedItem.Description = Utils.Clean(description, false, true, false, true, itemFilters) == "" ?
                                                Utils.Clean(Utils.GetCdata(FeedXmlParser.ParseString(item.Element("encoded"), "item[" + i + "]/encoded")), false, true, false, true, itemFilters) :
                                                Utils.Clean(description, false, true, false, true, itemFilters);

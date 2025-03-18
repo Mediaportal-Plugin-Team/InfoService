@@ -73,9 +73,9 @@ namespace FeedReader.Xml
                         feedItem.Author = Utils.Clean(FeedXmlParser.ParseString(item.Element("author"), "item[" + i + "]/author"));
                         feedItem.Title = Utils.Clean(FeedXmlParser.ParseString(item.Element("title"), "item/title"), true, false, true, true, itemFilters);
                         LogEvents.InvokeOnDebug(new FeedArgs("Try to get feed[" + rFeed.Title + "][" + feedItem.Title + "][" + i + "] item image..."));
+                        bool parseSuccess = false;
                         if (downloadImages)
                         {
-                            bool parseSuccess = false;
                             if (_useCache) parseSuccess = imageParser.TryParseFeedItemImageUrl(xmlFeed, _cacheFolder, rFeed.Title, feedItem.Title, i - 1);
                             else parseSuccess = imageParser.TryParseFeedItemImageUrl(xmlFeed, rFeed.Title, feedItem.Title, i - 1);
                             if (parseSuccess)
@@ -85,10 +85,20 @@ namespace FeedReader.Xml
                                     feedItem.Image = imageParser.GetParsedImage();
                                     feedItem.ImagePath = string.Empty;
                                 }
-                                else feedItem.ImagePath = imageParser.GetImagePath();
+                                else 
+                                    feedItem.ImagePath = imageParser.GetImagePath();
                             }
                         }
-                        
+                        else
+                        {
+                            if (_useCache)
+                                parseSuccess = imageParser.TryParseFeedItemImageUrl(xmlFeed, _cacheFolder, rFeed.Title, feedItem.Title, i - 1, true);
+                            else
+                                parseSuccess = imageParser.TryParseFeedItemImageUrl(xmlFeed, rFeed.Title, feedItem.Title, i - 1, true);
+                        }
+
+                        if (parseSuccess)
+                            feedItem.ImageUrl = imageParser.GetImageUrl();
                         feedItem.PublishDate = FeedXmlParser.ParseDateTime(item.Element("pubDate"), "item/pubDate");
                         feedItem.Url = FeedXmlParser.ParseString(item.Element("link"), "item/link").Trim();
                         string description = FeedXmlParser.ParseString(item.Element("description"), "item/description");
