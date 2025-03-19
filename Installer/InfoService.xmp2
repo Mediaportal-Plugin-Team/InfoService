@@ -1651,7 +1651,7 @@ Version v0.1:
     <VersionDescription>* x86 / x64 version</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>https://github.com/Mediaportal-Plugin-Team/InfoService/releases/download/v[Version]/[Name]-[Version].mpe1</OnlineLocation>
-    <ReleaseDate>2025-03-19T19:04:23</ReleaseDate>
+    <ReleaseDate>2025-03-19T11:11:11</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <PlatformCompatibility>AnyCPU</PlatformCompatibility>
     <Location>.\[Name]-[Version].mpe1</Location>
