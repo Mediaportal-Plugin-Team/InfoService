@@ -1596,7 +1596,7 @@ Version v0.1:
         <Id />
         <MinVersion>
           <Major>1</Major>
-          <Minor>32</Minor>
+          <Minor>36</Minor>
           <Build>100</Build>
           <Revision>0</Revision>
         </MinVersion>
@@ -1607,7 +1607,7 @@ Version v0.1:
           <Revision>*</Revision>
         </MaxVersion>
         <WarnOnly>false</WarnOnly>
-        <Message>Requires MediaPortal 1.32.100.0 or higher!</Message>
+        <Message>Requires MediaPortal 1.36.100.0 or higher!</Message>
         <Name>MediaPortal</Name>
         <Condition>None</Condition>
       </DependencyItem>
@@ -1648,10 +1648,12 @@ Version v0.1:
       <Revision>0</Revision>
     </Version>
     <ExtensionDescription>InfoService is a plugin for that provides weather, feed and twitter informations on the home screen. It has also a feed reader and a twitter client built in. The plugin is for MediaPortal users and skinners who want to have some information on their MediaPortal homescreen.</ExtensionDescription>
-    <VersionDescription>* x86 / x64 version</VersionDescription>
+    <VersionDescription>* Ready for 1.37 Pre Release
+
+* x86 / x64 version</VersionDescription>
     <DevelopmentStatus>Stable</DevelopmentStatus>
     <OnlineLocation>https://github.com/Mediaportal-Plugin-Team/InfoService/releases/download/v[Version]/[Name]-[Version].mpe1</OnlineLocation>
-    <ReleaseDate>2025-03-19T11:11:11</ReleaseDate>
+    <ReleaseDate>2025-03-20T11:11:11</ReleaseDate>
     <Tags>all,infoservice,rss,feed,twitter,weather,feeds</Tags>
     <PlatformCompatibility>AnyCPU</PlatformCompatibility>
     <Location>.\[Name]-[Version].mpe1</Location>
@@ -2085,7 +2087,7 @@ Version v0.1:
         <Recursive>true</Recursive>
       </FolderGroup>
     </FolderGroups>
-    <ProjectFilename>MPInfoService.xmp2</ProjectFilename>
+    <ProjectFilename>InfoService.xmp2</ProjectFilename>
     <UpdatePath1>.\update.xml</UpdatePath1>
     <UpdatePath2 />
     <UpdatePath3 />
